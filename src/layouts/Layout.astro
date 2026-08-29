@@ -137,6 +137,17 @@ const pageDescription = frontmatter.description
 </html>
 <style is:global>
 	:root {
+		/* Richard Cook brand colours */
+		--color-orange: #E85D2A;
+		--color-white: #FFFFFF;
+		--color-black: #111111;
+		--color-text: #111111;
+
+		/* Golden ratio */
+		--ratio: 1.618;
+		--space-base: 1.5rem;
+
+		/* Keep existing accent vars in case anything uses them */
 		--accent: 136, 58, 234;
 		--accent-light: 224, 204, 250;
 		--accent-dark: 49, 10, 101;
@@ -147,38 +158,45 @@ const pageDescription = frontmatter.description
 			white 60%
 		);
 	}
+
 	html {
-		font-family: "JetBrains Mono", system-ui, sans-serif;
-		font-size: 12px;
-		line-height: 1.2rem;
-		background: #13151a;
-		background-size: 224px;
+		/* Helvetica Neue stack */
+		font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+		color: var(--color-text);
+		background: var(--color-white);
+		font-size: 18px;
+		line-height: 1.5;
 	}
 
-	/* Ensure mono font applies to body (Tailwind reset override) */
 	body {
-		font-family: "JetBrains Mono", system-ui, sans-serif;
+		font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 	}
 
-	/* Light mode */
-	@media (prefers-color-scheme: light) {
-		html {
-			background: #fff;
-		}
+	/* Golden-ratio block helpers */
+	.golden-block {
+		width: 100%;
 	}
 
-	/* We want to bump up the font size on touch screens so that tap targets are easier to hit */
-	@media (hover: none) {
-		html {
-			font-size: 18px;
-		}
-
-		/* Pad links that are the only child of a paragraph */
-		p > a:only-child {
-			padding: 0.5rem 0;
-			display: inline-block;
-		}
+	.golden-block.ratio-height {
+		height: min(60vh, 100vw / var(--ratio));
 	}
+
+	.golden-block.orange {
+		background: var(--color-orange);
+		color: var(--color-white);
+	}
+
+	.golden-block.white {
+		background: var(--color-white);
+		color: var(--color-black);
+	}
+
+	/* Simple section spacing */
+	.section {
+		padding: calc(var(--space-base) * var(--ratio)) var(--space-base);
+	}
+
+	/* Keep some existing niceties */
 	code {
 		font-family:
 			Menlo,
@@ -191,34 +209,32 @@ const pageDescription = frontmatter.description
 			monospace;
 	}
 
-	/* Headings use monospace font */
 	h1, h2, h3, h4, h5, h6 {
 		font-family: 
-			"JetBrains Mono",
-			Menlo,
-			Monaco,
-			"Courier New",
-			monospace;
+			"Helvetica Neue",
+			Helvetica,
+			Arial,
+			sans-serif;
+		font-weight: 600;
 	}
 
 	h1 {
-		font-size: 1.1rem;
-		font-style: italic;
-		font-weight: 500;
-		margin-bottom: 0.3rem;
+		font-size: clamp(1.8rem, 4vw, 3rem);
+		line-height: 1.15;
+		margin-bottom: 1rem;
 	}
-
 
 	body:not(.is-home) a {
 		text-decoration: underline;
 	}
 
-	/* 
-	 * Disable default root view transition to prevent
-	 * page title/content flashing during navigation
-	 */
 	::view-transition-old(root),
 	::view-transition-new(root) {
 		animation: none;
+	}
+
+	/* Light mode default (override dark theme) */
+	html {
+		background: #fff;
 	}
 </style>
