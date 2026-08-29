@@ -1,99 +1,89 @@
 ---
-/**
- * Home page with automatic article listing.
- * Articles are MDX files using BlogLayout.
- */
-import Layout from '../layouts/Layout.astro'
-
-/**
- * Article frontmatter shape for MDX pages.
- */
-interface ArticleFrontmatter {
-  title?: string;
-  description?: string;
-  publishDate?: string;
-  layout?: string;
-}
-
-interface ArticleModule {
-  frontmatter: ArticleFrontmatter;
-  url?: string;
-}
-
-// Use import.meta.glob (modern replacement for Astro.glob)
-const mdxModules = import.meta.glob<ArticleModule>(
-  './*.mdx',
-  { eager: true }
-)
-
-// Filter to only pages using BlogLayout
-const articles = Object.entries(mdxModules)
-  .filter(([_, module]) => {
-    const layout = module.frontmatter?.layout
-    return layout?.includes('BlogLayout')
-  })
-  .map(([filepath, module]) => {
-    // Convert filepath to URL: ./example-article.mdx -> /example-article
-    const url = filepath
-      .replace('./', '/')
-      .replace('.mdx', '')
-    return {
-      title: module.frontmatter?.title,
-      description: module.frontmatter?.description,
-      publishDate: module.frontmatter?.publishDate,
-      url,
-    }
-  })
-  // Sort by date, newest first
-  .sort((a, b) => {
-    const dateA = new Date(a.publishDate || 0)
-    const dateB = new Date(b.publishDate || 0)
-    return dateB.getTime() - dateA.getTime()
-  })
+import '../styles/global.css';
 ---
 
-<Layout frontmatter={{ title: 'Nice Tat Astro Template' }}>
-  <!-- Markdown Preview - https://dillinger.io/ -->
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Richard Cook Strategic Communications</title>
+    <meta name="description" content="Clear, credible strategic communications, media counsel and crisis response" />
+  </head>
+  <body>
+    <!-- Simple top nav placeholder – we’ll refine this next -->
+    <header class="section">
+      <nav>
+        <a href="/" style="font-weight: 700; text-decoration: none; color: var(--color-black);">Richard Cook</a>
+      </nav>
+    </header>
 
-  <h1>Nice Tat Astro Template</h1>
+    <!-- Hero / intro -->
+    <main class="section">
+      <h1 style="font-size: clamp(1.8rem, 4vw, 3rem); line-height: 1.15; margin-bottom: 1rem; color: var(--color-orange);">
+        Richard Cook Strategic Communications
+      </h1>
 
-  <p><a href="/how-to-use">using this template</a></p>
-  <p><a href="https://www.youtube.com/watch?v=sEyHnHjhlr4">youtube</a></p>
-  <p><a href="https://github.com/ThatGuySam/nice-tat">github</a></p>
-  <p><a href="https://www.instagram.com/caseyneistat/">instagram</a></p>
-  <p><a href="/onlyfans">onlyfans</a></p>
-  <p><a href="https://twitter.com/Casey">twitter</a></p>
-  <p><a href="/contact">contact</a></p>
+      <p style="font-size: clamp(1.1rem, 2.2vw, 1.4rem); line-height: 1.5; margin-bottom: 1.5rem; max-width: 65ch;">
+        Clear, credible strategic communications, media counsel and crisis response
+      </p>
 
-  {/* Article listing */}
-  {articles.length > 0 && (
-    <section class="my-8 pt-6">
-      <h2 class="tracking-wide mb-4">
-        Articles
-      </h2>
-      <ul class="space-y-3">
-        {articles.map((article) => (
-          <li>
-            <a href={article.url} class="block group">
-              <span class="group-hover:underline">
-                {article.title}
-              </span>
-              {article.publishDate && (
-                <span class="
-                  text-gray-500 text-sm ml-2
-                ">
-                  {new Date(article.publishDate)
-                    .toLocaleDateString('en-US', {
-                      month: 'short',
-                      day: 'numeric',
-                      year: 'numeric',
-                    })}
-                </span>
-              )}
-            </a>
-          </li>
-        ))}
+      <p style="margin-bottom: 1rem; max-width: 65ch;">
+        Richard Cook provides strategic communications, media strategy and crisis counsel to leaders and organisations facing complexity, scrutiny or change.
+      </p>
+
+      <p style="margin-bottom: 1rem; max-width: 65ch;">
+        His work brings together three decades of international experience across brands, newsrooms and high-stakes reputation management.
+      </p>
+
+      <p style="margin-bottom: 0.75rem; max-width: 65ch;">
+        Richard helps leaders and organisations:
+      </p>
+
+      <ul style="margin-bottom: 1.5rem; max-width: 65ch; padding-left: 1.2rem;">
+        <li style="margin-bottom: 0.4rem;">Understand how they are perceived.</li>
+        <li style="margin-bottom: 0.4rem;">Prioritise the communications that matter most – internally and publicly.</li>
+        <li style="margin-bottom: 0.4rem;">Act credibly when circumstances are complex or stakes are high.</li>
       </ul>
-    </section>
-  )}
-</Layout>
+
+      <p style="margin-bottom: 1.5rem; max-width: 65ch;">
+        Richard has worked extensively with global consumer brands, technical and regulatory authorities, index and data businesses, environmental and carbon platforms, expeditions, fintech and investment firms, logistics and transportation conglomerates, and media and news platforms.
+      </p>
+
+      <p style="margin-bottom: 1.5rem; max-width: 65ch;">
+        Richard has worked globally and is now based in North Yorkshire. He typically works on long-term and retainer assignments but is also available to undertake advisory projects.
+      </p>
+
+      <p style="margin-bottom: 2rem; max-width: 65ch;">
+        He is available for crisis response, strategic communications reviews, and media platform development. All enquiries are welcome.
+      </p>
+
+      <!-- Golden-ratio CTA block -->
+      <div
+        class="golden-block orange ratio-height"
+        style="display: flex; align-items: center; justify-content: center; text-align: center; padding: 1rem;"
+      >
+        <a
+          href="mailto:hello@richardcook.uk"
+          style="
+            color: var(--color-white);
+            font-size: clamp(1.1rem, 2.2vw, 1.4rem);
+            font-weight: 600;
+            text-decoration: none;
+            border: 2px solid var(--color-white);
+            padding: 0.75rem 1.25rem;
+            border-radius: 4px;
+          "
+        >
+          Arrange a confidential conversation
+        </a>
+      </div>
+    </main>
+
+    <!-- Simple footer -->
+    <footer class="section" style="font-size: 0.9rem; opacity: 0.8;">
+      <p style="margin: 0;">
+        © Richard Cook / richardcook.uk • <a href="mailto:hello@richardcook.uk" style="color: inherit;">hello@richardcook.uk</a>
+      </p>
+    </footer>
+  </body>
+</html>
