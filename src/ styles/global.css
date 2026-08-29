@@ -1,0 +1,40 @@
+:root {
+  --color-orange: #E85D2A;
+  --color-white: #FFFFFF;
+  --color-black: #111111;
+  --color-text: #111111;
+  --ratio: 1.618;
+  --space-base: 1.5rem;
+}
+
+html {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: var(--color-text);
+  background: var(--color-white);
+}
+
+/* Golden-ratio block helpers */
+.golden-block {
+  width: 100%;
+  /* Height will be set inline or via modifier classes */
+}
+
+.golden-block.ratio-height {
+  /* Height = width / 1.618, capped so it doesn’t dominate on large screens */
+  height: min(60vh, 100vw / var(--ratio));
+}
+
+.golden-block.orange {
+  background: var(--color-orange);
+  color: var(--color-white);
+}
+
+.golden-block.white {
+  background: var(--color-white);
+  color: var(--color-black);
+}
+
+/* Simple section spacing */
+.section {
+  padding: calc(var(--space-base) * var(--ratio)) var(--space-base);
+}
