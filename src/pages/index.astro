@@ -3,43 +3,110 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout title="Richard Cook Strategic Communications">
-  <h1>Richard Cook Strategic Communications</h1>
+  <style>
+    /* Page-specific styles for Home */
+    .hero-title {
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      line-height: 1.15;
+      margin-bottom: 1rem;
+      color: #E85D2A; /* burnt orange */
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
 
-  <p>
+    .hero-sub {
+      font-size: clamp(1.1rem, 2.2vw, 1.4rem);
+      line-height: 1.5;
+      margin-bottom: 1.5rem;
+      max-width: 65ch;
+      color: var(--text);
+    }
+
+    .content-p {
+      margin-bottom: 1rem;
+      max-width: 65ch;
+    }
+
+    .content-ul {
+      margin-bottom: 1.5rem;
+      max-width: 65ch;
+      padding-left: 1.2rem;
+    }
+
+    .content-ul li {
+      margin-bottom: 0.4rem;
+    }
+
+    .orange-cta-block {
+      background: #E85D2A;
+      color: #FFFFFF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem 1rem;
+      border-radius: 8px;
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .orange-cta-block a {
+      color: #FFFFFF;
+      font-size: clamp(1.1rem, 2.2vw, 1.4rem);
+      font-weight: 600;
+      text-decoration: none;
+      border: 2px solid #FFFFFF;
+      padding: 0.75rem 1.25rem;
+      border-radius: 4px;
+      transition: opacity 0.15s ease;
+    }
+
+    .orange-cta-block a:hover {
+      opacity: 0.9;
+    }
+  </style>
+
+  <h1 class="hero-title">
+    Richard Cook Strategic Communications
+  </h1>
+
+  <p class="hero-sub">
     Clear, credible strategic communications, media counsel and crisis response
   </p>
 
-  <p>
+  <p class="content-p">
     Richard Cook provides strategic communications, media strategy and crisis counsel to leaders and organisations facing complexity, scrutiny or change.
   </p>
 
-  <p>
+  <p class="content-p">
     His work brings together three decades of international experience across brands, newsrooms and high-stakes reputation management.
   </p>
 
-  <p>
+  <p class="content-p">
     Richard helps leaders and organisations:
   </p>
 
-  <ul>
+  <ul class="content-ul">
     <li>Understand how they are perceived.</li>
     <li>Prioritise the communications that matter most – internally and publicly.</li>
     <li>Act credibly when circumstances are complex or stakes are high.</li>
   </ul>
 
-  <p>
+  <p class="content-p">
     Richard has worked extensively with global consumer brands, technical and regulatory authorities, index and data businesses, environmental and carbon platforms, expeditions, fintech and investment firms, logistics and transportation conglomerates, and media and news platforms.
   </p>
 
-  <p>
+  <p class="content-p">
     Richard has worked globally and is now based in North Yorkshire. He typically works on long-term and retainer assignments but is also available to undertake advisory projects.
   </p>
 
-  <p>
+  <p class="content-p">
     He is available for crisis response, strategic communications reviews, and media platform development. All enquiries are welcome.
   </p>
 
-  <p>
-    <a href="mailto:hello@richardcook.uk">Arrange a confidential conversation →</a>
-  </p>
+  <div class="orange-cta-block">
+    <a href="mailto:hello@richardcook.uk">
+      Arrange a confidential conversation
+    </a>
+  </div>
 </Layout>
