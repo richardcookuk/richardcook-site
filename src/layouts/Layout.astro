@@ -196,7 +196,8 @@ const { title } = Astro.props;
     </footer>
 
     <script>
-      document.getElementById('year').textContent = new Date().getFullYear();
+      const yearEl = document.getElementById('year');
+      if (yearEl) {
+        yearEl.textContent = String(new Date().getFullYear());
+      }
     </script>
-  </body>
-</html>
