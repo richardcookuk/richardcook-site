@@ -1,89 +1,45 @@
 ---
-// Global styles are now in src/layouts/Layout.astro
+import Layout from '../layouts/Layout.astro';
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Richard Cook Strategic Communications</title>
-    <meta name="description" content="Clear, credible strategic communications, media counsel and crisis response" />
-  </head>
-  <body>
-    <!-- Simple top nav placeholder – we’ll refine this next -->
-    <header class="section">
-      <nav>
-        <a href="/" style="font-weight: 700; text-decoration: none; color: var(--color-black);">Richard Cook</a>
-      </nav>
-    </header>
+<Layout title="Richard Cook Strategic Communications">
+  <h1>Richard Cook Strategic Communications</h1>
 
-    <!-- Hero / intro -->
-    <main class="section">
-      <h1 style="font-size: clamp(1.8rem, 4vw, 3rem); line-height: 1.15; margin-bottom: 1rem; color: var(--color-orange);">
-        Richard Cook Strategic Communications
-      </h1>
+  <p>
+    Clear, credible strategic communications, media counsel and crisis response
+  </p>
 
-      <p style="font-size: clamp(1.1rem, 2.2vw, 1.4rem); line-height: 1.5; margin-bottom: 1.5rem; max-width: 65ch;">
-        Clear, credible strategic communications, media counsel and crisis response
-      </p>
+  <p>
+    Richard Cook provides strategic communications, media strategy and crisis counsel to leaders and organisations facing complexity, scrutiny or change.
+  </p>
 
-      <p style="margin-bottom: 1rem; max-width: 65ch;">
-        Richard Cook provides strategic communications, media strategy and crisis counsel to leaders and organisations facing complexity, scrutiny or change.
-      </p>
+  <p>
+    His work brings together three decades of international experience across brands, newsrooms and high-stakes reputation management.
+  </p>
 
-      <p style="margin-bottom: 1rem; max-width: 65ch;">
-        His work brings together three decades of international experience across brands, newsrooms and high-stakes reputation management.
-      </p>
+  <p>
+    Richard helps leaders and organisations:
+  </p>
 
-      <p style="margin-bottom: 0.75rem; max-width: 65ch;">
-        Richard helps leaders and organisations:
-      </p>
+  <ul>
+    <li>Understand how they are perceived.</li>
+    <li>Prioritise the communications that matter most – internally and publicly.</li>
+    <li>Act credibly when circumstances are complex or stakes are high.</li>
+  </ul>
 
-      <ul style="margin-bottom: 1.5rem; max-width: 65ch; padding-left: 1.2rem;">
-        <li style="margin-bottom: 0.4rem;">Understand how they are perceived.</li>
-        <li style="margin-bottom: 0.4rem;">Prioritise the communications that matter most – internally and publicly.</li>
-        <li style="margin-bottom: 0.4rem;">Act credibly when circumstances are complex or stakes are high.</li>
-      </ul>
+  <p>
+    Richard has worked extensively with global consumer brands, technical and regulatory authorities, index and data businesses, environmental and carbon platforms, expeditions, fintech and investment firms, logistics and transportation conglomerates, and media and news platforms.
+  </p>
 
-      <p style="margin-bottom: 1.5rem; max-width: 65ch;">
-        Richard has worked extensively with global consumer brands, technical and regulatory authorities, index and data businesses, environmental and carbon platforms, expeditions, fintech and investment firms, logistics and transportation conglomerates, and media and news platforms.
-      </p>
+  <p>
+    Richard has worked globally and is now based in North Yorkshire. He typically works on long-term and retainer assignments but is also available to undertake advisory projects.
+  </p>
 
-      <p style="margin-bottom: 1.5rem; max-width: 65ch;">
-        Richard has worked globally and is now based in North Yorkshire. He typically works on long-term and retainer assignments but is also available to undertake advisory projects.
-      </p>
+  <p>
+    He is available for crisis response, strategic communications reviews, and media platform development. All enquiries are welcome.
+  </p>
 
-      <p style="margin-bottom: 2rem; max-width: 65ch;">
-        He is available for crisis response, strategic communications reviews, and media platform development. All enquiries are welcome.
-      </p>
-
-      <!-- Golden-ratio CTA block -->
-      <div
-        class="golden-block orange ratio-height"
-        style="display: flex; align-items: center; justify-content: center; text-align: center; padding: 1rem;"
-      >
-        <a
-          href="mailto:hello@richardcook.uk"
-          style="
-            color: var(--color-white);
-            font-size: clamp(1.1rem, 2.2vw, 1.4rem);
-            font-weight: 600;
-            text-decoration: none;
-            border: 2px solid var(--color-white);
-            padding: 0.75rem 1.25rem;
-            border-radius: 4px;
-          "
-        >
-          Arrange a confidential conversation
-        </a>
-      </div>
-    </main>
-
-    <!-- Simple footer -->
-    <footer class="section" style="font-size: 0.9rem; opacity: 0.8;">
-      <p style="margin: 0;">
-        © Richard Cook / richardcook.uk • <a href="mailto:hello@richardcook.uk" style="color: inherit;">hello@richardcook.uk</a>
-      </p>
-    </footer>
-  </body>
-</html>
+  <p>
+    <a href="mailto:hello@richardcook.uk">Arrange a confidential conversation →</a>
+  </p>
+</Layout>
